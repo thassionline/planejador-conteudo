@@ -1,0 +1,42 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Identidade Descomplica Digital em variáveis (white label: troque aqui ou por agência no layout) */
+:root {
+  --fundo: 247 248 250;
+  --cartao: 255 255 255;
+  --principal: 27 82 247; /* #1B52F7 azul Descomplica */
+  --principal-suave: 236 241 255;
+  --texto: 23 27 38;
+  --texto-2: 102 110 125;
+  --borda: 230 232 237;
+  --suave: 243 244 247;
+  --sucesso: 22 131 93;
+  --atencao: 196 132 18;
+  --erro: 205 61 61;
+  --whatsapp: 37 211 102;
+}
+
+@layer base {
+  html { -webkit-text-size-adjust: 100%; }
+  body { @apply bg-fundo text-texto font-sans antialiased; font-size: 14px; line-height: 1.45; }
+  b, strong, th { font-weight: 600; }
+  input, select, textarea, button { font: inherit; }
+  :focus-visible { outline: 2px solid rgb(var(--principal)); outline-offset: 2px; }
+}
+
+@layer components {
+  .btn { @apply inline-flex items-center justify-center gap-2 rounded-lg border border-borda bg-cartao px-3 py-2 text-[13.5px] font-medium text-texto transition hover:bg-suave disabled:cursor-not-allowed disabled:opacity-50; }
+  .btn-principal { @apply btn border-principal bg-principal text-white hover:bg-principal hover:opacity-90; }
+  .btn-sucesso { @apply btn border-sucesso bg-sucesso text-white hover:bg-sucesso hover:opacity-90; }
+  .btn-perigo { @apply btn border-erro/30 text-erro hover:bg-erro/5; }
+  .btn-icone { @apply inline-flex h-9 w-9 items-center justify-center rounded-lg border border-borda bg-cartao text-texto-2 hover:bg-suave; }
+  .campo { @apply w-full rounded-lg border border-borda bg-cartao px-3 py-2 text-[14px] outline-none focus:border-principal focus:ring-2 focus:ring-principal/15; }
+  .rotulo { @apply mb-1 block text-[12px] font-medium text-texto-2; }
+  .cartao { @apply rounded-cartao border border-borda bg-cartao shadow-leve; }
+  .pilula { @apply inline-flex items-center gap-1.5 rounded-full bg-suave px-2.5 py-1 text-[12px] font-medium; }
+}
+
+.sem-barra::-webkit-scrollbar { display: none; }
+.sem-barra { scrollbar-width: none; }
